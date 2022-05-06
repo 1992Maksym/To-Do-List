@@ -1,0 +1,21 @@
+.toDoBlock{
+  width: 50%;
+  margin: 50px auto;
+
+  .routList{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    border: 1px solid grey;
+    justify-content: flex-end;
+    padding: 5px;
+
+    li{
+      margin-left: 20px;
+    }
+    li:hover{
+      cursor: pointer;
+      color: mediumpurple;
+    }
+  }
+}

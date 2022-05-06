@@ -1,6 +1,6 @@
 <form [formGroup]="searchForm" novalidate>
-  <div>
-    <input type="text" formControlName="text" />
-    <button class="searchBtn" (click) = 'takeSearchVal()' >click</button>
+  <div class="searchBlock">
+    <input type="text" formControlName="text" class="searchInput"/>
+    <button class="searchBtn" (click) = 'takeSearchVal()' >add</button>
   </div>
 </form>

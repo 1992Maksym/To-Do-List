@@ -1,4 +1,12 @@
 <div class="toDoBlock">
   <h2 class="toDoTitle">ToDo List</h2>
   <app-search></app-search>
+  <div class="routBlock">
+    <ul class="routList">
+      <li class="routToDo" routerLink="todo">ToDo</li>
+      <li class="routDone" routerLink="done">Done</li>
+      <li class="routAll" routerLink="all">All</li>
+    </ul>
+  </div>
 </div>
+<router-outlet></router-outlet>
