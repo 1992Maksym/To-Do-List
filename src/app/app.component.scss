@@ -2,6 +2,10 @@
   width: 50%;
   margin: 50px auto;
 
+  h2{
+    text-align: center;
+
+  }
   .routList{
     padding: 0;
     list-style: none;
@@ -12,6 +16,7 @@
 
     li{
       margin-left: 20px;
+      border: none;
     }
     li:hover{
       cursor: pointer;

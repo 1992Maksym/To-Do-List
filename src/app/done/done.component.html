@@ -1,1 +1,5 @@
-<p>done works!</p>
+<div class="doneBlock">
+  <ul class="doneList" *ngFor="doneArr">
+    <li class="doneItem" *ngIf="let item of doneArr">{{ item }}</li>
+  </ul>
+</div>

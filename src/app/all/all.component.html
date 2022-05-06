@@ -1,1 +1,5 @@
-<p>all works!</p>
+<div class="allBlock">
+  <ul class="allList" *ngIf="allArr">
+    <li class="allItem" *ngFor="let item of allArr">{{ item }}</li>
+  </ul>
+</div>

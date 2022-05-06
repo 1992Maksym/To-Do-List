@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoneComponent implements OnInit {
 
+  doneArr = []
   constructor() { }
 
   ngOnInit(): void {

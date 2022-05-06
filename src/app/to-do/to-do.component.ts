@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToDoService } from '../to-do.service'
 
 @Component({
   selector: 'app-to-do',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToDoComponent implements OnInit {
 
-  constructor() { }
+  toDoArr = [];
+  constructor(private toDoServ: ToDoService) { }
 
   ngOnInit(): void {
+    this.toDoServ.toDoList.forEach((el) => {
+      this.toDoArr.push(el)
+    })
   }
 
 }

@@ -1,1 +1,5 @@
-<p>to-do works!</p>
+<div class="toDoBlock">
+  <ul class="toDoList" *ngIf="toDoArr">
+    <li class="toDoItem" *ngFor="let item of toDoArr">{{ item }}</li>
+  </ul>
+</div>
