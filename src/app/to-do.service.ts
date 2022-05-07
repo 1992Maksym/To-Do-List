@@ -7,5 +7,5 @@ export class ToDoService {
 
   constructor() { }
 
-  toDoList = [];
+  toDoList: any[] = [];
 }

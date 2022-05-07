@@ -8,7 +8,7 @@ import { ToDoService } from '../to-do.service'
 })
 export class ToDoComponent implements OnInit {
 
-  toDoArr = [];
+  toDoArr:any[] = [];
   constructor(private toDoServ: ToDoService) { }
 
   ngOnInit(): void {
