@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToDoService } from "../to-do.service"
 // import { ReactiveFormsModule, FormGroup, FormControl } from "@angular/forms";
 // import { FormsModule } from "@angular/forms";
-// import {debounceTime, map, tap} from "rxjs";
+import {debounceTime, map, tap} from "rxjs";
 
 @Component({
   selector: 'app-search',
@@ -11,28 +11,19 @@ import { ToDoService } from "../to-do.service"
 })
 export class SearchComponent implements OnInit {
 
-
   inputVal: any;
-  searchForm: any;
   constructor(private toDo: ToDoService) { }
-
-  ngOnInit(): void {
-    // this.searchForm = new FormGroup({
-    //   text: new FormControl(null),
-    // })
-    // this.searchForm.get('text').valueChanges.pipe(
-    //   debounceTime(700),
-    //   map(el => this.inputVal = el),
-    // ).subscribe()
-
-  }
 
   getInputVal(el: any){
     this.inputVal = el;
   }
+  ngOnInit(): void {}
 
   takeSearchVal(){
-    this.toDo.toDoList.push(this.inputVal)
+    this.toDo.toDoList.next(this.inputVal)
+    this.toDo.toDoList.pipe(
+      map(el => el),
+    ).subscribe();
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="toDoBlock">
-  <ul class="toDoList" *ngIf="toDoArr">
-    <li class="toDoItem" *ngFor="let item of toDoArr">{{ item }}</li>
+  <ul class="toDoList" *ngIf="trigger">
+    <li class="toDoItem"  *ngFor="let item of toDoArr" >{{ item }}</li>
   </ul>
 </div>
