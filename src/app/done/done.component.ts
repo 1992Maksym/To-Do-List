@@ -20,7 +20,14 @@ export class DoneComponent implements OnInit {
       })
     ).subscribe()
   }
-  deleteDoneItem(){}
+  deleteDoneItem(item: any){
+    this.done.doneArr.find((el: any) => {
+      if(el == item){
+        let index = this.done.doneArr.indexOf(el);
+        this.done.doneArr.splice(index,1);
+      }
+    })
+  }
 
 
 }
