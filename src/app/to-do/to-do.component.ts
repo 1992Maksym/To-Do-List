@@ -25,11 +25,11 @@ export class ToDoComponent implements OnInit {
     ).subscribe()
   }
 
-  addItem(){
-    let toDoItemText: any = document.querySelector('.toDoItemText');
-    this.doneServ.getValDone(toDoItemText.innerHTML);
+  addItem(item: any){
+    let toDoItemText: any = item;
+    this.doneServ.getValDone(toDoItemText);
     this.toDoServ.toDoValues.find((el: any) => {
-      if(el == toDoItemText.innerHTML){
+      if(el == toDoItemText){
         let index = this.toDoServ.toDoValues.indexOf(el);
         this.toDoServ.toDoValues.splice(index,1);
       }

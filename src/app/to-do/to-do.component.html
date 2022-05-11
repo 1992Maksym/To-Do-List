@@ -2,7 +2,7 @@
   <ul class="toDoList" *ngIf="trigger">
     <li class="toDoItem"  *ngFor="let item of toDoArr" >
       <div>
-        <span class="addItem" (click)="addItem()" >+</span>
+        <span class="addItem" (click)="addItem(item)" >+</span>
         <span class="toDoItemText">{{ item }}</span>
       </div>
       <div><span class="deleteItem" (click)="deleteItem()">-</span></div>
