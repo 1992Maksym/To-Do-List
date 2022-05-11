@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoService } from '../to-do.service'
 import {debounceTime, map, tap} from "rxjs";
+import {trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-to-do',
@@ -9,27 +10,19 @@ import {debounceTime, map, tap} from "rxjs";
 })
 export class ToDoComponent implements OnInit {
 
-
   trigger = false;
-  toDoArr:any[] = [];
-  constructor(private toDoServ: ToDoService) {
-
-  }
-  // showmMessage(){
-  //   console.log('toDoArr ' + this.toDoArr);
-  //   console.log('toDoServ ' + this.toDoServ.toDoList)
-  // }
+  toDoArr = [];
+  constructor(private toDoServ: ToDoService) {}
 
   ngOnInit(): void {
+    this.toDoServ.setValues()
     this.toDoServ.toDoList.pipe(
-      map(el => {
-        if(el != ''){
-          this.toDoArr.push(el);
-          this.trigger = true;
-        }
-      }),
+     map(el => {
+       this.trigger = true;
+       this.toDoArr = el;
+       // this.toDoArr.push(el)
+     })
     ).subscribe()
-
-    console.log(this.toDoServ.toDoList);
   }
+
 }

@@ -20,10 +20,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   takeSearchVal(){
-    this.toDo.toDoList.next(this.inputVal)
-    this.toDo.toDoList.pipe(
-      map(el => el),
-    ).subscribe();
+    this.toDo.getValue(this.inputVal)
   }
 
 }
