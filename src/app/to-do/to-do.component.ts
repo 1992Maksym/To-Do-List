@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ToDoService } from '../to-do.service';
 import { DoneServService } from '../done-serv.service'
 import {debounceTime, map, tap} from "rxjs";
-import {trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-to-do',
@@ -26,18 +25,17 @@ export class ToDoComponent implements OnInit {
   }
 
   addItem(item: any){
-    let toDoItemText: any = item;
-    this.doneServ.getValDone(toDoItemText);
+    this.doneServ.getValDone(item);
+    this.deleteItem(item);
+  }
+
+
+  deleteItem(item: any){
     this.toDoServ.toDoValues.find((el: any) => {
-      if(el == toDoItemText){
+      if(el == item){
         let index = this.toDoServ.toDoValues.indexOf(el);
         this.toDoServ.toDoValues.splice(index,1);
       }
     })
-  }
-
-
-  deleteItem(){
-
   }
 }
