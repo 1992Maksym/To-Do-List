@@ -28,7 +28,12 @@ export class ToDoComponent implements OnInit {
   addItem(){
     let toDoItemText: any = document.querySelector('.toDoItemText');
     this.doneServ.getValDone(toDoItemText.innerHTML);
-    console.log(this.doneServ.doneArr)
+    this.toDoServ.toDoValues.find((el: any) => {
+      if(el == toDoItemText.innerHTML){
+        let index = this.toDoServ.toDoValues.indexOf(el);
+        this.toDoServ.toDoValues.splice(index,1);
+      }
+    })
   }
 
 
