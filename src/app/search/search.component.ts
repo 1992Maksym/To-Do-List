@@ -20,7 +20,9 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   takeSearchVal(){
-    this.toDo.getValue(this.inputVal)
+    if(this.inputVal != ''){
+      this.toDo.getValue(this.inputVal);
+    }
   }
 
 }

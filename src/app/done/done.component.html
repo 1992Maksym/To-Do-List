@@ -1,5 +1,9 @@
 <div class="doneBlock">
-  <ul class="doneList" *ngFor="doneArr">
-    <li class="doneItem" *ngIf="let item of doneArr">{{ item }}</li>
+  <ul class="doneList" *ngIf="doneArr">
+    <li class="doneItem"  *ngFor="let item of doneArr" >
+      <div><span class="doneItemText">{{ item }}</span></div>
+      <div><span class="deleteItem" (click)="deleteDoneItem()">-</span></div>
+    </li>
   </ul>
 </div>
+
