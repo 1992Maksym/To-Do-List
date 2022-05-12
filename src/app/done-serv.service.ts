@@ -19,4 +19,13 @@ export class DoneServService {
   setValDone(){
     this.doneList.next(this.doneArr)
   }
+
+  deleteItem(item: any){
+    this.doneArr.find((el: any) => {
+      if(el == item){
+        let index = this.doneArr.indexOf(el);
+        this.doneArr.splice(index,1);
+      }
+    })
+  }
 }

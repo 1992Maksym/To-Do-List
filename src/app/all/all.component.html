@@ -1,5 +1,7 @@
 <div class="allBlock">
   <ul class="allList" *ngIf="allArr">
-    <li class="allItem" *ngFor="let item of allArr">{{ item }}</li>
+    <li class="allItem" *ngFor="let item of allArr">
+      <div><span class="doneItemText">{{ item }}</span></div>
+    </li>
   </ul>
 </div>

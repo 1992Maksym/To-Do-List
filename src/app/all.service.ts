@@ -19,4 +19,13 @@ export class AllService {
   setAllValues(){
     this.allServiceList.next(this.allArr);
   }
+
+  deleteItem(item: any){
+    this.allArr.find((el: any) => {
+      if(el == item){
+        let index = this.allArr.indexOf(el);
+        this.allArr.splice(index,1);
+      }
+    })
+  }
 }

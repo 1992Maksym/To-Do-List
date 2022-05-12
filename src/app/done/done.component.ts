@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DoneServService } from '../done-serv.service';
 import {debounceTime, map, tap} from "rxjs";
+import {AllService} from "../all.service";
 
 @Component({
   selector: 'app-done',
@@ -10,7 +11,7 @@ import {debounceTime, map, tap} from "rxjs";
 export class DoneComponent implements OnInit {
 
   doneArr = []
-  constructor(private done: DoneServService) { }
+  constructor(private done: DoneServService, private allServ: AllService) { }
 
   ngOnInit(): void {
     this.done.setValDone();
@@ -21,12 +22,8 @@ export class DoneComponent implements OnInit {
     ).subscribe()
   }
   deleteDoneItem(item: any){
-    this.done.doneArr.find((el: any) => {
-      if(el == item){
-        let index = this.done.doneArr.indexOf(el);
-        this.done.doneArr.splice(index,1);
-      }
-    })
+    this.done.deleteItem(item);
+    this.allServ.deleteItem(item);
   }
 
 

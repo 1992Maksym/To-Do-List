@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToDoService } from '../to-do.service';
 import { DoneServService } from '../done-serv.service'
 import {debounceTime, map, tap} from "rxjs";
+import {AllService} from "../all.service";
 
 @Component({
   selector: 'app-to-do',
@@ -12,7 +13,7 @@ export class ToDoComponent implements OnInit {
 
   trigger = false;
   toDoArr = [];
-  constructor(private toDoServ: ToDoService, private  doneServ: DoneServService) {}
+  constructor(private toDoServ: ToDoService, private  doneServ: DoneServService, private allServ: AllService) {}
 
   ngOnInit(): void {
     this.toDoServ.setValues()
@@ -26,16 +27,13 @@ export class ToDoComponent implements OnInit {
 
   addItem(item: any){
     this.doneServ.getValDone(item);
-    this.deleteItem(item);
+    this.toDoServ.deleteItem(item);
   }
-
 
   deleteItem(item: any){
-    this.toDoServ.toDoValues.find((el: any) => {
-      if(el == item){
-        let index = this.toDoServ.toDoValues.indexOf(el);
-        this.toDoServ.toDoValues.splice(index,1);
-      }
-    })
+    this.toDoServ.deleteItem(item);
+    this.allServ.deleteItem(item);
   }
+
+
 }

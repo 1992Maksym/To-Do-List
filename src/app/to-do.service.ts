@@ -11,16 +11,24 @@ export class ToDoService {
 
   toDoList: BehaviorSubject<any> = new BehaviorSubject<any>('');
 
+  toDoValues:any = []
+
   getValue(val: any){
     this.toDoValues.push(val);
   }
-
-  toDoValues:any = []
 
   setValues(){
     this.toDoList.next(this.toDoValues)
   }
 
+  deleteItem(item: any){
+    this.toDoValues.find((el: any) => {
+      if(el == item){
+        let index = this.toDoValues.indexOf(el);
+        this.toDoValues.splice(index,1);
+      }
+    });
+  }
 
 }
 
