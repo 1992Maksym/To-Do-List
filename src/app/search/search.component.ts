@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDoService } from "../to-do.service";
-import {AllService} from "../all.service";
+import {Todo, ToDoService} from "../to-do.service";
+import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
+import {BehaviorSubject} from "rxjs";
 
 
 @Component({
@@ -9,20 +10,25 @@ import {AllService} from "../all.service";
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  todoData$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
+  todoForm: FormGroup;
 
-  inputVal: any;
-  constructor(private toDo: ToDoService, private all: AllService) { }
-
-  getInputVal(el: any){
-    this.inputVal = el;
+  constructor(private toDoService: ToDoService, private formBuilder: FormBuilder) {
+    this.todoForm = this.formBuilder.group({
+      id: [""],
+      value: ["", Validators.required],
+      status: ["undone"]
+    })
   }
-  ngOnInit(): void {}
 
-  takeSearchVal(){
-    if(this.inputVal != ''){
-      this.toDo.getValue(this.inputVal);
-      this.all.getAllValues(this.inputVal);
-    }
+  ngOnInit(): void {
+
+  }
+
+  onSubmit(){
+    this.toDoService.createTask(this.todoForm.value);
+    // this.todoForm.controls['value'].setValue('');
+    console.log(this.todoForm.value);
   }
 
 }

@@ -1,11 +1,9 @@
 <div class="toDoBlock">
-  <ul class="toDoList" *ngIf="trigger">
+  <ul class="toDoList">
     <li class="toDoItem"  *ngFor="let item of toDoArr" >
       <div>
-        <span class="addItem" (click)="addItem(item)" >+</span>
         <span class="toDoItemText">{{ item }}</span>
       </div>
-      <div><span class="deleteItem" (click)="deleteItem(item)">-</span></div>
     </li>
   </ul>
 </div>

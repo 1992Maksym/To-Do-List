@@ -1,6 +1,6 @@
-<form novalidate>
+<form [formGroup]="todoForm" (submit)="onSubmit()">
   <div class="searchBlock">
-    <input type="text" class="searchInput" placeholder="enter your next task"  #inputVal (input) = 'getInputVal(inputVal.value)'/>
-    <button class="searchBtn" (click) = 'takeSearchVal()' >add</button>
+    <input type="text" class="searchInput" placeholder="enter your next task" formControlName="value" />
+    <button type="submit" class="searchBtn">add</button>
   </div>
 </form>

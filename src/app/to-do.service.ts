@@ -1,34 +1,27 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {debounceTime, map, tap} from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable()
+export type Status = 'done | undone'
+export interface Todo {
+  id: any;
+  value: string;
+  status: Status;
+}
+
 export class ToDoService {
 
   constructor() { }
 
-  toDoList: BehaviorSubject<any> = new BehaviorSubject<any>('');
+  toDoList$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
+  todoArr: Todo[] = [];
+  id: number = 0;
 
-  toDoValues:any = []
-
-  getValue(val: any){
-    this.toDoValues.push(val);
+  createTask(item: Todo){
+    item.id = ++this.id;
+    this.toDoList$.next(Object.assign([], this.todoArr))
   }
 
-  setValues(){
-    this.toDoList.next(this.toDoValues)
-  }
-
-  deleteItem(item: any){
-    this.toDoValues.find((el: any) => {
-      if(el == item){
-        let index = this.toDoValues.indexOf(el);
-        this.toDoValues.splice(index,1);
-      }
-    });
-  }
 
 }
 

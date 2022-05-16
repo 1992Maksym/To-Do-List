@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AllService} from "../all.service";
+import {ToDoService} from "../to-do.service";
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -10,17 +10,8 @@ import { map } from 'rxjs/operators';
 export class AllComponent implements OnInit {
 
   allArr = []
-  constructor(private allService: AllService) { }
+  constructor(private toDo: ToDoService) { }
 
-  ngOnInit(): void {
-    this.allService.setAllValues();
-    this.allService.allServiceList.pipe(
-      map(el => {
-        this.allArr = el;
-      })
-    ).subscribe();
-  }
-
-
+  ngOnInit(): void {}
 
 }

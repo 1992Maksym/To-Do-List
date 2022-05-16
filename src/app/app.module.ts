@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { AllComponent } from './all/all.component';
 import { DoneComponent } from './done/done.component';
 import { ToDoComponent } from './to-do/to-do.component';
+import {ToDoService} from "./to-do.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { ToDoComponent } from './to-do/to-do.component';
     FormsModule,
     RoutingModule
   ],
-  providers: [],
+  providers: [ToDoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
