@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ToDoService} from "../to-do.service";
+import {Todo, ToDoService} from "../to-do.service";
 import { map } from 'rxjs/operators';
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-all',
@@ -9,9 +10,11 @@ import { map } from 'rxjs/operators';
 })
 export class AllComponent implements OnInit {
 
-  allArr = []
+  allArr$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([])
   constructor(private toDo: ToDoService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.allArr$ = this.toDo.toDoList$;
+  }
 
 }

@@ -1,7 +1,7 @@
 <div class="allBlock">
-  <ul class="allList" *ngIf="allArr">
-    <li class="allItem" *ngFor="let item of allArr">
-      <div><span class="doneItemText">{{ item }}</span></div>
+  <ul class="allList" *ngIf="allArr$">
+    <li class="allItem" *ngFor="let item of (allArr$ | async)">
+      <div><span class="doneItemText">{{ item.value }}</span></div>
     </li>
   </ul>
 </div>

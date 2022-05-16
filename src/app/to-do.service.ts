@@ -3,6 +3,7 @@ import {BehaviorSubject} from "rxjs";
 
 // @Injectable()
 export type Status = 'done | undone'
+
 export interface Todo {
   id: any;
   value: string;
@@ -11,7 +12,7 @@ export interface Todo {
 
 export class ToDoService {
 
-  constructor() { }
+  constructor() {}
 
   toDoList$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
   todoArr: Todo[] = [];
@@ -19,6 +20,7 @@ export class ToDoService {
 
   createTask(item: Todo){
     item.id = ++this.id;
+    this.todoArr.push(item);
     this.toDoList$.next(Object.assign([], this.todoArr))
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Todo, ToDoService} from "../to-do.service";
 import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
 import {BehaviorSubject} from "rxjs";
+import { map } from "rxjs/operators";
 
 
 @Component({
@@ -17,18 +18,18 @@ export class SearchComponent implements OnInit {
     this.todoForm = this.formBuilder.group({
       id: [""],
       value: ["", Validators.required],
-      status: ["undone"]
+      status: [""]
     })
   }
 
   ngOnInit(): void {
-
+    this.todoData$ = this.toDoService.toDoList$
   }
 
   onSubmit(){
     this.toDoService.createTask(this.todoForm.value);
-    // this.todoForm.controls['value'].setValue('');
-    console.log(this.todoForm.value);
+    this.todoForm.controls['value'].setValue('');
+    console.log(this.toDoService.todoArr);
   }
 
 }
