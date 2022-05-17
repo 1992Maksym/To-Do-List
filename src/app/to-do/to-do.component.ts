@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDoService } from '../to-do.service';
-import {debounceTime, map, tap} from "rxjs";
+import {Todo, ToDoService} from '../to-do.service';
+import {BehaviorSubject, debounceTime, map, tap} from "rxjs";
 
 @Component({
   selector: 'app-to-do',
@@ -9,9 +9,14 @@ import {debounceTime, map, tap} from "rxjs";
 })
 export class ToDoComponent implements OnInit {
 
-  toDoArr = [];
-  constructor() {}
+  length: number = 0;
+  toDoArray:any[] = [];
+  constructor(private toDo: ToDoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.toDo.todoArr.forEach(el => {
+      if(el.status == false) this.toDoArray.push(el);
+    })
+  }
 
 }

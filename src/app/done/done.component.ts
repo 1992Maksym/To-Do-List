@@ -9,8 +9,12 @@ import {debounceTime, map, tap} from "rxjs";
 })
 export class DoneComponent implements OnInit {
 
-  doneArr = []
-  constructor() { }
+  doneArr:any[] = []
+  constructor(private toDo: ToDoService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.toDo.todoArr.forEach(el => {
+      if(el.status == true) this.doneArr.push(el)
+    })
+  }
 }

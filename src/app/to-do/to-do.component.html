@@ -1,8 +1,8 @@
 <div class="toDoBlock">
   <ul class="toDoList">
-    <li class="toDoItem"  *ngFor="let item of toDoArr" >
+    <li class="toDoItem"  *ngFor="let item of toDoArray" >
       <div>
-        <span class="toDoItemText">{{ item }}</span>
+        <span class="toDoItemText">{{ item.value }}</span>
       </div>
     </li>
   </ul>

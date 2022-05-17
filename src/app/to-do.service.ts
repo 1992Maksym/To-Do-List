@@ -29,8 +29,5 @@ export class ToDoService {
     this.toDoList$.next(Object.assign([], this.todoArr));
   }
 
-  // changeStatus($event: any,item : Todo){
-  //   item.status = $event.target.checked;
-  // }
 }
 
