@@ -3,9 +3,9 @@
   <app-search></app-search>
   <div class="routBlock">
     <ul class="routList">
-      <li class="routToDo" routerLink="todo">ToDo</li>
-      <li class="routDone" routerLink="done">Done</li>
-      <li class="routAll" routerLink="all">All</li>
+      <li class="routToDo" routerLink="todo" [routerLinkActive]="['active']">ToDo</li>
+      <li class="routDone" routerLink="done" [routerLinkActive]="['active']">Done</li>
+      <li class="routAll" routerLink="all" [routerLinkActive]="['active']">All</li>
     </ul>
   </div>
   <router-outlet></router-outlet>

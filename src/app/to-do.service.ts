@@ -17,6 +17,8 @@ export class ToDoService {
   toDoList$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
   todoArr: Todo[] = [];
   id: number = 0;
+  length: number = this.todoArr.length
+
 
   createTask(item: Todo){
     item.id = ++this.id;

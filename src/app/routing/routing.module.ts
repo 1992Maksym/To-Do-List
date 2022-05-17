@@ -6,12 +6,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllComponent } from '../all/all.component';
 import { DoneComponent } from '../done/done.component';
 import { ToDoComponent } from '../to-do/to-do.component';
+import {NotFoundComponent} from "../not-found/not-found.component";
 
 
 const appRoutes: Routes = [
   { path: 'todo', component: ToDoComponent },
   { path: 'done', component: DoneComponent },
-  { path: 'all', component: AllComponent }
+  { path: 'all', component: AllComponent },
+  { path: '', component: AllComponent },
+  {path: 'not-found', component: NotFoundComponent},
+  {path: '**', redirectTo: '/not-found'}
   ]
 
 @NgModule({

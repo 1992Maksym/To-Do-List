@@ -20,7 +20,10 @@
     }
     li:hover{
       cursor: pointer;
-      color: mediumpurple;
+      color: greenyellow;
+    }
+    .active{
+      color: blueviolet;
     }
   }
 }

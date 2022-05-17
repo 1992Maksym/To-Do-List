@@ -10,6 +10,7 @@ import { AllComponent } from './all/all.component';
 import { DoneComponent } from './done/done.component';
 import { ToDoComponent } from './to-do/to-do.component';
 import {ToDoService} from "./to-do.service";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {ToDoService} from "./to-do.service";
     SearchComponent,
     AllComponent,
     DoneComponent,
-    ToDoComponent
+    ToDoComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
