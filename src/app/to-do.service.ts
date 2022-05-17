@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 
 // @Injectable()
-export type Status = 'done | undone'
+// export type Status = 'done | undone'
 
 export interface Todo {
   id: any;
   value: string;
-  status: Status;
+  status: boolean;
 }
 
 export class ToDoService {
@@ -24,6 +24,13 @@ export class ToDoService {
     this.toDoList$.next(Object.assign([], this.todoArr))
   }
 
+  deleteTask(id: number){
+    this.todoArr = this.todoArr.filter(el => el.id != id);
+    this.toDoList$.next(Object.assign([], this.todoArr));
+  }
 
+  // changeStatus($event: any,item : Todo){
+  //   item.status = $event.target.checked;
+  // }
 }
 

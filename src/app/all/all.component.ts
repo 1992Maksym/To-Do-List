@@ -16,5 +16,12 @@ export class AllComponent implements OnInit {
   ngOnInit(): void {
     this.allArr$ = this.toDo.toDoList$;
   }
+  deleteTask(id: number){
+    this.toDo.deleteTask(id);
+  }
+
+  onChangeStatus($event: any, item: Todo){
+    item.status = $event.target.checked;
+  }
 
 }

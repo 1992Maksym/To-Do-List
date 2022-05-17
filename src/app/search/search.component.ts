@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
     this.todoForm = this.formBuilder.group({
       id: [""],
       value: ["", Validators.required],
-      status: [""]
+      status: false,
     })
   }
 
