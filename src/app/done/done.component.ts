@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDoService } from '../to-do.service';
-import {debounceTime, map, tap} from "rxjs";
+import {Todo, ToDoService} from '../to-do.service';
+import {BehaviorSubject, debounceTime, map, tap} from "rxjs";
 
 @Component({
   selector: 'app-done',
@@ -9,12 +9,18 @@ import {debounceTime, map, tap} from "rxjs";
 })
 export class DoneComponent implements OnInit {
 
-  doneArr:any[] = []
-  constructor(private toDo: ToDoService) { }
+  length: number = 0;
+  doneArr$:BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([])
+  // doneArr: Todo[] = []
+  constructor(private toDo: ToDoService) {}
 
   ngOnInit(): void {
-    this.toDo.todoArr.forEach(el => {
-      if(el.status == true) this.doneArr.push(el)
-    })
+    // this.toDo.todoArr.forEach(el => {
+    //   if(el.status == true) this.doneArr.push(el)
+    // })
+    const arr = this.toDo.toDoList$.getValue().filter(el => el.status == true);
+    this.doneArr$.next(arr)
+    this.length = this.doneArr$.getValue().length;
+
   }
 }

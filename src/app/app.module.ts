@@ -11,6 +11,7 @@ import { DoneComponent } from './done/done.component';
 import { ToDoComponent } from './to-do/to-do.component';
 import {ToDoService} from "./to-do.service";
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LengthComponent } from './length/length.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AllComponent,
     DoneComponent,
     ToDoComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LengthComponent
   ],
   imports: [
     BrowserModule,

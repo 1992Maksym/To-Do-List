@@ -1,8 +1,9 @@
 <div class="doneBlock">
-  <ul class="doneList" *ngIf="doneArr">
-    <li class="doneItem"  *ngFor="let item of doneArr" >
+  <ul class="doneList" *ngIf="doneArr$">
+    <li class="doneItem"  *ngFor="let item of (doneArr$ | async)" >
       <div><span class="doneItemText">{{ item.value }}</span></div>
     </li>
   </ul>
+  <div class="length">length {{length}}</div>
 </div>
 

@@ -1,6 +1,6 @@
 <div class="toDoBlock">
   <ul class="toDoList">
-    <li class="toDoItem"  *ngFor="let item of toDoArray" >
+    <li class="toDoItem"  *ngFor="let item of (toDoArray$ | async)">
       <div>
         <span class="toDoItemText">{{ item.value }}</span>
       </div>

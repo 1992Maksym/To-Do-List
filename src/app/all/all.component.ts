@@ -15,6 +15,15 @@ export class AllComponent implements OnInit {
 
   ngOnInit(): void {
     this.allArr$ = this.toDo.toDoList$;
+    this.allArr$.pipe(
+      map(arr => {
+        arr.forEach(obj => {
+          if(obj.status == true) {
+
+          }
+        })
+      })
+    )
   }
   deleteTask(id: number){
     this.toDo.deleteTask(id);

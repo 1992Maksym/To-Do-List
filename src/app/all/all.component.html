@@ -2,10 +2,8 @@
   <ul class="allList" *ngIf="allArr$">
     <li class="allItem" *ngFor="let item of (allArr$ | async)">
       <div class="checkbox"><input type="checkbox" [checked]="item.status" (change)="onChangeStatus($event,item)"></div>
-      <div><span class="doneItemText">{{ item.value }}</span></div>
+      <div><span class="doneItemText" [class.todo]="item.status==false" [class.done]="item.status==true">{{ item.value }}</span></div>
       <div class="delete-btn"><button type="button" (click) = 'deleteTask(item.id)'>delete</button></div>
     </li>
-    <div class="length">length </div>
   </ul>
-
 </div>

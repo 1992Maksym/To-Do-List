@@ -5,7 +5,7 @@ import {BehaviorSubject} from "rxjs";
 // export type Status = 'done | undone'
 
 export interface Todo {
-  id: any;
+  id: number;
   value: string;
   status: boolean;
 }
@@ -17,7 +17,6 @@ export class ToDoService {
   toDoList$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
   todoArr: Todo[] = [];
   id: number = 0;
-  length: number = this.todoArr.length
 
 
   createTask(item: Todo){
