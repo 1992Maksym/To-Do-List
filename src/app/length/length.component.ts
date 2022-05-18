@@ -9,8 +9,8 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class LengthComponent implements OnInit {
 
   url: string = ''
-  constructor(private route:Router) {
-    console.log(route.url)
+  constructor(private router: Router){
+    // console.log(router.url);
   }
 
   ngOnInit(): void {
