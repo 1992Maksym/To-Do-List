@@ -13,7 +13,8 @@ const appRoutes: Routes = [
   { path: 'todo', component: ToDoComponent },
   { path: 'done', component: DoneComponent },
   { path: 'all', component: AllComponent },
-  { path: '', component: AllComponent },
+  // { path: '', component: AllComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'all'},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
   ]

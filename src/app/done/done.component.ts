@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo, ToDoService} from '../to-do.service';
 import {BehaviorSubject, debounceTime, map, tap} from "rxjs";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-done',
@@ -9,18 +11,13 @@ import {BehaviorSubject, debounceTime, map, tap} from "rxjs";
 })
 export class DoneComponent implements OnInit {
 
-  length: number = 0;
   doneArr$:BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([])
   // doneArr: Todo[] = []
-  constructor(private toDo: ToDoService) {}
+  constructor(private toDo: ToDoService, private router: Router) {}
 
   ngOnInit(): void {
-    // this.toDo.todoArr.forEach(el => {
-    //   if(el.status == true) this.doneArr.push(el)
-    // })
+    this.toDo.getUrl(this.router.url)
     const arr = this.toDo.toDoList$.getValue().filter(el => el.status == true);
     this.doneArr$.next(arr)
-    this.length = this.doneArr$.getValue().length;
-
   }
 }
