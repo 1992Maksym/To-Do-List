@@ -15,7 +15,7 @@ export class AllComponent implements OnInit {
   constructor(private toDo: ToDoService, private router: Router) { }
 
   ngOnInit(): void {
-    this.toDo.getUrl(this.router.url)
+    this.toDo.getLengthByUrl(this.router.url)
 
 
 

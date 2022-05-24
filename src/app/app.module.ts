@@ -12,7 +12,7 @@ import { ToDoComponent } from './to-do/to-do.component';
 import {ToDoService} from "./to-do.service";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LengthComponent } from './length/length.component';
-// import {LocalStorageService} from "./local-storage.service";
+import {LocalStorageService} from "./local-storage.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { LengthComponent } from './length/length.component';
     FormsModule,
     RoutingModule
   ],
-  providers: [ToDoService],
+  providers: [ToDoService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {  }

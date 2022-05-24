@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit {
   onSubmit(){
     this.toDoService.createTask(this.todoForm.value);
     this.todoForm.controls['value'].setValue('');
-    this.toDoService.getUrl(this.router.url)
+    this.toDoService.getLengthByUrl(this.router.url)
   }
 
 }

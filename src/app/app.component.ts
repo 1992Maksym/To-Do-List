@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
 
   constructor(private todo: ToDoService, private router: Router) {}
   ngOnInit() {
-    this.todo.initializeLocalStorage()
+    this.todo.initializeLocalStorage();
   }
 }
 

@@ -17,7 +17,7 @@ export class ToDoComponent implements OnInit {
   constructor(private toDo: ToDoService, private router: Router) {}
 
   ngOnInit(): void {
-    this.toDo.getUrl(this.router.url)
+    this.toDo.getLengthByUrl(this.router.url)
     const toDo = this.toDo.toDoList$.getValue().filter(el => el.status !== true)
     this.toDoArray$.next(toDo);
   }

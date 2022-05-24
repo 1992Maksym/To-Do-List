@@ -16,7 +16,7 @@ export class DoneComponent implements OnInit {
   constructor(private toDo: ToDoService, private router: Router) {}
 
   ngOnInit(): void {
-    this.toDo.getUrl(this.router.url)
+    this.toDo.getLengthByUrl(this.router.url)
     const arr = this.toDo.toDoList$.getValue().filter(el => el.status == true);
     this.doneArr$.next(arr)
   }
